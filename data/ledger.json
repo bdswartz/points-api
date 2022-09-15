@@ -6,7 +6,7 @@
         {
           "timestamp": "2021-01-01T00:00:00Z",
           "creditWalletId": "",
-          "points": 1600
+          "points": 2500
         }
       ]
     },
@@ -16,7 +16,7 @@
         {
           "timestamp": "2021-01-01T00:00:00Z",
           "creditWalletId": "",
-          "points": 400
+          "points": 200
         }
       ]
     },
@@ -26,7 +26,7 @@
         {
           "timestamp": "2021-01-02T00:00:00Z",
           "creditWalletId": "",
-          "points": 4000
+          "points": 700
         },
         {
           "timestamp": "2021-01-01T00:00:00Z",
@@ -37,11 +37,6 @@
           "timestamp": "2021-01-01T00:00:00Z",
           "creditWalletId": "21f51c05-e556-41f1-9cc9-0a314bb2ebcc",
           "points": 200
-        },
-        {
-          "timestamp": "2021-01-01T00:00:00Z",
-          "creditWalletId": "d5af01f0-515a-4834-ab4e-a2f54aeaedbf",
-          "points": 4700
         }
       ]
     },
@@ -51,7 +46,7 @@
         {
           "timestamp": "2021-01-01T00:00:00Z",
           "creditWalletId": "",
-          "points": 11000
+          "points": 16700
         }
       ]
     }
