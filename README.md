@@ -15,15 +15,15 @@
 This application is not deployed to the internet and therefore is to be run locally
 
 1.  Navigate to the folder in which you would like the application folder to reside and clone the GitHub repository for this application using the following command in the terminal: git clone https://github.com/bdswartz/points-api.git
-2.  Navigate to the point-api folder (created in step 1) in the terminal and run the app in development mode using the following terminal command: npm start.
+2.  Navigate to the points-api folder (created in step 1) in the terminal and run the app in development mode using the following terminal command: npm start.
 
 ---
 
 ## Usage
 
-The easiest way to interact with this application is to use your favorite API creation desktop software (ie [Insomnia](https://docs.insomnia.rest/) to create the API calls needed to interact with the backend API endpoints.
+The easiest way to interact with this application once the server is running is to use your favorite API creation desktop software (ie [Insomnia](https://docs.insomnia.rest/) to create the API calls needed to interact with the backend API endpoints.
 
-Server Endpoints Included (endpoint uri based on the server locally)
+Server Endpoints Included (endpoint uri based on the server running locally)
 
 See All Account Balances.
 Method: Get
@@ -32,6 +32,12 @@ URI: localhost:3001/api/balances
 Spend from User's Points Account
 Method: Put
 URI: localhost:3001/api/spend/-User's Account Number-
+
+```
+{
+  "points": 5000
+}
+```
 
 Transfer from one User's Account to another User's Account
 Method: Post
