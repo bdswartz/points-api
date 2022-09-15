@@ -23,21 +23,6 @@
     {
       "id": "363a3f19-7fa9-4e34-851d-6e42ef92a285",
       "transactions": [
-        {
-          "timestamp": "2021-01-02T00:00:00Z",
-          "creditWalletId": "",
-          "points": 700
-        },
-        {
-          "timestamp": "2021-01-01T00:00:00Z",
-          "creditWalletId": "8c18b5bf-0171-4918-a611-bde754382f7a",
-          "points": 100
-        },
-        {
-          "timestamp": "2021-01-01T00:00:00Z",
-          "creditWalletId": "21f51c05-e556-41f1-9cc9-0a314bb2ebcc",
-          "points": 200
-        }
       ]
     },
     {
@@ -46,7 +31,7 @@
         {
           "timestamp": "2021-01-01T00:00:00Z",
           "creditWalletId": "",
-          "points": 16700
+          "points": 15300
         }
       ]
     }

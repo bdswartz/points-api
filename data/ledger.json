@@ -6,37 +6,26 @@
         {
           "timestamp": "2021-01-01T00:00:00Z",
           "creditWalletId": "",
-          "points": 2500
+          "points": 1000
         }
       ]
     },
     {
       "id": "21f51c05-e556-41f1-9cc9-0a314bb2ebcc",
-      "transactions": [
-        {
-          "timestamp": "2021-01-01T00:00:00Z",
-          "creditWalletId": "",
-          "points": 200
-        }
-      ]
+      "transactions": []
     },
     {
       "id": "363a3f19-7fa9-4e34-851d-6e42ef92a285",
       "transactions": [
         {
-          "timestamp": "2021-01-02T00:00:00Z",
-          "creditWalletId": "",
-          "points": 700
-        },
-        {
-          "timestamp": "2021-01-01T00:00:00Z",
           "creditWalletId": "8c18b5bf-0171-4918-a611-bde754382f7a",
-          "points": 100
+          "points": 1000,
+          "timestamp": "2021-11-02T14:00:00Z"
         },
         {
-          "timestamp": "2021-01-01T00:00:00Z",
-          "creditWalletId": "21f51c05-e556-41f1-9cc9-0a314bb2ebcc",
-          "points": 200
+          "timestamp": "2021-11-01T14:00:00Z",
+          "creditWalletId": "d5af01f0-515a-4834-ab4e-a2f54aeaedbf",
+          "points": 5700
         }
       ]
     },
@@ -46,7 +35,7 @@
         {
           "timestamp": "2021-01-01T00:00:00Z",
           "creditWalletId": "",
-          "points": 16700
+          "points": 5300
         }
       ]
     }

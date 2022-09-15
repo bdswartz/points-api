@@ -1,6 +1,6 @@
 const router = require('express').Router();
 let { ledger } = require('../../data/ledger.json');
-const { getAccountBalance, spendTransaction } = require('../../functions/transactions');
+const { getAccountBalance, spendTransaction, transferPoints } = require('../../functions/transactions');
 
 // test server and data by getting all ledger data
 router.get('/', (req, res) => {
@@ -13,10 +13,17 @@ router.post('/transfer', (req, res) => {
     const ledgerData = ledger;
     const transfer = req.body
     // test for funds in credit wallet
-    
+    const balanceRemaining =  getAccountBalance(ledgerData,transfer.creditWalletId) - transfer.points
+    console.log("🚀 ~ file: transactionRoutes.js ~ line 17 ~ router.post ~ balanceRemaining", balanceRemaining)
     // if enough funds then perform transaction
-
+    if (balanceRemaining >= 0 ) {
+        const results = transferPoints(ledgerData,transfer);
+        res.json(results);
+    }  
     // otherwise send insufficient funds response
+    else {
+        res.status(400).send('Not enough funds in Credit Wallet to complete the transaction')
+    }
 }); 
 
 // change account data to spend points 

@@ -1,9 +1,24 @@
 const fs = require("fs");
 const path = require("path");
 
-const transferPoints = () => {
-    
-  };
+const transferPoints = (ledgerData, transfer) => {
+  // get the account information for the debit account
+  let accountData = ledgerData.filter( account => account.id === transfer.debitWalletId);
+  // hold the index so that the account can be updated
+  const index = ledgerData.indexOf(accountData[0]);
+  // push the new transfer into the debit account
+  accountData[0].transactions.push({
+      creditWalletId: transfer.creditWalletId,
+      points: transfer.points,
+      timestamp: transfer.timestamp
+  });
+  // update the ledger data
+  ledgerData[index]=accountData[0];
+  // execute a spend transaction on the credit account and update ledger data file
+  spendTransaction(ledgerData, transfer.points, transfer.creditWalletId);
+  return accountData;
+};
+
 
 const spendTransaction = (ledgerData, points, creditAccount) => {
   // get the account information for the credit account
