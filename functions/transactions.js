@@ -1,10 +1,71 @@
+const fs = require("fs");
+const path = require("path");
 
 const transferPoints = () => {
     
   };
 
-const spendTransaction = () => {
+const spendTransaction = (ledgerData, points, creditAccount) => {
+  // get the account information for the credit account
+  let accountData = ledgerData.filter( account => account.id === creditAccount);
+  // hold the index so that the account can be updated
+  const index = ledgerData.indexOf(accountData[0]);
+  // remove funds; oldest to newest
+  const sortedHistory = accountData[0].transactions.sort((a, b) => {
+    return (a.timestamp < b.timestamp) ? -1 : ((a.timestamp > b.timestamp) ? 1 : 0)
+    });
+  let sumTransaction = 0
+  let returnArray = [];
+  let removedHistory = []
+  while (sumTransaction<points) {
+    removedHistory = sortedHistory.shift();
+    sumTransaction += removedHistory.points;
+    returnArray.push(removedHistory);
+  }
+  if (sumTransaction === points) {
+    // replace original transaction history with post transaction history
+    accountData[0].transactions = sortedHistory;
+    // replace account data in ledger data
+    ledgerData[index] = accountData[0];
+    // call the write function to update data file for persistance
+    writeToDataFile(ledgerData);
+    // return the array that was built wit removed transactions (old to new)
+    return returnArray
+  }
+  else {
+    // remove last (overstated) transaction that was removed
+    returnArray.pop();
+    // push a new transaction with updated point total
+    returnArray.push(
+      {
+        timestamp: removedHistory.timestamp,
+        creditWalletId: removedHistory.creditWalletId,
+        points: removedHistory.points - (sumTransaction - points)
+      }
+    )
+    // update the remaining sorted history with the remaining points from final transaction
+    sortedHistory.push({
+          timestamp: removedHistory.timestamp,
+          creditWalletId: removedHistory.creditWalletId,
+          points: (sumTransaction - points)
+        })
+      // replace original transaction history with post transaction history
+      accountData[0].transactions = sortedHistory;
+      // replace account data in ledger data
+      ledgerData[index] = accountData[0];
+      // call the write function to update data file for persistance
+      writeToDataFile(ledgerData);
+      // return the array that was built wit removed transactions (old to new)
+      return returnArray;
+  }
+};
 
+const writeToDataFile = (ledger) => {
+  // write to the ledger.json
+  fs.writeFileSync(
+  path.join(__dirname, '../data/ledger.json'),
+  JSON.stringify({ ledger: ledger }, null, 2)
+  );
 }
 
 const getAccountBalance = (ledgerData,accountId) => {
