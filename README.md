@@ -49,6 +49,8 @@ Body (JSON):
 }
 ```
 
+The application features an initial ledger.json file in the \data folder. Since the API calls to this server will modify the ledger.json file, there is a copy provided that saves the initial state of the data in case the sequence of calls needs to be re-started. Simply copy the json from the ledger copy file and paste over the json in the ledger file.
+
 - ***
 
 ## Technologies
