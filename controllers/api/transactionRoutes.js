@@ -14,7 +14,6 @@ router.post('/transfer', (req, res) => {
     const transfer = req.body
     // test for funds in credit wallet
     const balanceRemaining =  getAccountBalance(ledgerData,transfer.creditWalletId) - transfer.points
-    console.log("🚀 ~ file: transactionRoutes.js ~ line 17 ~ router.post ~ balanceRemaining", balanceRemaining)
     // if enough funds then perform transaction
     if (balanceRemaining >= 0 ) {
         const results = transferPoints(ledgerData,transfer);
