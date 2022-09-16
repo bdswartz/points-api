@@ -13,7 +13,6 @@ app.use(express.json());
 // initiate routing
 app.use('/api', apiRoutes);
 
-
 app.listen(3001, () => {
     console.log(`API server now on port 3001!`);
   });

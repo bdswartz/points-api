@@ -33,7 +33,7 @@ router.put('/spend/:id', (req, res) => {
     // test for funds in spending wallet
     const balanceRemaining =  getAccountBalance(ledgerData, creditWallet) - spend.points
       // if enough funds then perform transaction
-    if (balanceRemaining > 0 ) {
+    if (balanceRemaining >= 0 ) {
         const results = spendTransaction(ledgerData, spend.points, creditWallet);
         res.json(results);
         }  
@@ -57,5 +57,7 @@ router.get('/balances', (req, res) => {
         res.send(404);
     }
 });
+
+
 
 module.exports  = router;

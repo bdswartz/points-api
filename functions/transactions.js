@@ -70,7 +70,7 @@ const spendTransaction = (ledgerData, points, creditAccount) => {
       ledgerData[index] = accountData[0];
       // call the write function to update data file for persistance
       writeToDataFile(ledgerData);
-      // return the array that was built wit removed transactions (old to new)
+      // return the array that was built with removed transactions (old to new)
       return returnArray;
   }
 };
